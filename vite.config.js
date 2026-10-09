@@ -70,7 +70,7 @@ function cleanHtmlRoutes() {
 }
 
 export default defineConfig({
-  base: './',
+  base: '/',
   root: resolve(__dirname, 'src'),
   publicDir: resolve(__dirname, 'public'),
   plugins: [cleanHtmlRoutes()],
