@@ -14,9 +14,17 @@
     /*------------------
         Preloader
     --------------------*/
-    $(window).on('load', function () {
+    function hidePreloader() {
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
+    }
+
+    if (document.readyState === 'complete') {
+        hidePreloader();
+    } else {
+        $(window).on('load', hidePreloader);
+        setTimeout(hidePreloader, 600);
+    }
 
         /*------------------
             Gallery filter
