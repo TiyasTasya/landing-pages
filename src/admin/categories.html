@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Categories - InApp Inventory Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="./assets/images/favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="./assets/scss/style.scss">
+</head>
+
+<body>
+  <div id="overlay" class="overlay"></div>
+  <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3">
+    <button id="toggleBtn" class="d-none d-lg-inline-flex btn btn-light btn-icon btn-sm" aria-label="Toggle sidebar">
+      <i class="ti ti-layout-sidebar-left-expand"></i>
+    </button>
+    <button id="mobileBtn" class="btn btn-light btn-icon btn-sm d-lg-none me-2" aria-label="Open sidebar">
+      <i class="ti ti-layout-sidebar-left-expand"></i>
+    </button>
+    <div>
+      <ul class="list-unstyled d-flex align-items-center mb-0 gap-1">
+        <li class="dropdown">
+          <a class="position-relative btn-icon btn-sm btn-light btn rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button" aria-label="Notifications">
+            <i class="ti ti-bell fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">2<span class="visually-hidden">unread notifications</span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
+            <ul class="list-unstyled p-0 m-0">
+              <li class="p-3 border-bottom"><div class="d-flex gap-3"><span class="icon-shape icon-sm bg-primary-subtle text-primary rounded-circle"><i class="ti ti-package"></i></span><div class="small"><p class="mb-0">New order received</p><p class="mb-1">Order #12345 has been placed</p><div class="text-secondary">5 minutes ago</div></div></div></li>
+              <li class="p-3 border-bottom"><div class="d-flex gap-3"><span class="icon-shape icon-sm bg-success-subtle text-success rounded-circle"><i class="ti ti-user-plus"></i></span><div class="small"><p class="mb-0">New user registered</p><p class="mb-1">A new user has signed up</p><div class="text-secondary">30 minutes ago</div></div></div></li>
+              <li class="px-4 py-3 text-center"><a href="#" class="text-primary">View all notifications</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="ms-3 dropdown">
+          <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profile menu">
+            <img src="./assets/images/avatar/avatar-6.jpeg" alt="Shrina Tesla" class="avatar avatar-sm rounded-circle">
+          </a>
+          <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
+            <div class="d-flex gap-3 align-items-center border-bottom px-3 py-3">
+              <img src="./assets/images/avatar/avatar-6.jpeg" alt="" class="avatar avatar-md rounded-circle">
+              <div><h4 class="mb-0 small">Shrina Tesla</h4><p class="mb-0 small">@imshrina</p></div>
+            </div>
+            <ul class="list-unstyled p-0 m-0">
+              <li><a class="dropdown-item" href="#"><i class="ti ti-user me-2"></i>Profile</a></li>
+              <li><a class="dropdown-item" href="./settings"><i class="ti ti-settings me-2"></i>Settings</a></li> 
+              <li><a class="dropdown-item text-primary fw-semibold" href="/"><i class="ti ti-world me-2"></i> Ke Landing Page</a></li>
+              <li><a class="dropdown-item" href="./signin"><i class="ti ti-logout me-2"></i>Logout</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="logo-area">
+      <a href="./" class="d-inline-flex"><img src="./assets/images/logo-icon.svg" alt="" width="24">
+        <span class="logo-text ms-2"><img src="./assets/images/logo.svg" alt=""></span>
+      </a>
+    </div>
+    <ul class="nav flex-column">
+      <li><a class="nav-link" href="./"><i class="ti ti-home"></i><span class="nav-text">Dashboard</span></a></li>
+      <li><a class="nav-link" href="./inventory"><i class="ti ti-box-seam"></i><span class="nav-text">Inventory</span></a></li>
+      <li><a class="nav-link" href="./categories"><i class="ti ti-category"></i><span class="nav-text">Categories</span></a></li>
+      <li><a class="nav-link" href="./suppliers"><i class="ti ti-truck"></i><span class="nav-text">Suppliers</span></a></li>
+      <li><a class="nav-link" href="./stock-movements"><i class="ti ti-transfer"></i><span class="nav-text">Stock Movements</span></a></li>
+      <li><a class="nav-link" href="./create-product"><i class="ti ti-plus"></i><span class="nav-text">Add Product</span></a></li>
+      <li><a class="nav-link" href="./reports"><i class="ti ti-receipt"></i><span class="nav-text">Reports</span></a></li>
+      
+      <li><a class="nav-link" href="./settings"><i class="ti ti-settings"></i><span class="nav-text">Settings</span></a></li>
+      <li><a class="nav-link" href="./docs"><i class="ti ti-file-text"></i><span class="nav-text">Docs</span></a></li>
+    </ul>
+  </aside>
+
+  <main id="content" class="content py-10">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h1 class="fs-3 mb-1">Categories</h1>
+          <p class="mb-0">Organize inventory products by category.</p>
+        </div>
+        <button class="btn btn-primary" type="button" data-add-category><i class="ti ti-plus me-1"></i>Add Category</button>
+      </div>
+
+      <div class="card table-responsive">
+        <table class="table table-hover mb-0" data-category-table>
+          <thead class="table-light">
+            <tr><th>Category</th><th>Description</th><th>Products</th><th>Status</th><th>Action</th></tr>
+          </thead>
+                    <tbody>
+            <tr><td class="fw-semibold">Daging Segar (Fresh Meat)</td><td>Daging dan olahan segar berkualitas</td><td>1 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Sayuran (Vegetables)</td><td>Sayuran organik segar dari petani lokal</td><td>1 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Buah & Kacang (Fruit & Nut)</td><td>Buah-buahan segar dan kacang-kacangan bernutrisi</td><td>5 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Beri Segar (Fresh Berries)</td><td>Buah beri dan anggur manis alami</td><td>2 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Makanan Laut (Ocean Foods)</td><td>Tangkapan laut dan kepiting segar</td><td>1 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Mentega & Telur (Butter & Eggs)</td><td>Produk olahan susu, mentega, dan telur segar</td><td>0 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Makanan Cepat Saji (Fastfood)</td><td>Olahan saji cepat dan minuman jus buah segar</td><td>2 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Bawang Segar (Fresh Onion)</td><td>Bumbu dapur dan bawang segar pilihan</td><td>0 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td class="fw-semibold">Oatmeal</td><td>Sereal dan gandum sehat organik</td><td>0 Produk</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button"><i class="ti ti-edit"></i></button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/js/main.js" type="module"></script>
+</body>
+
+</html>

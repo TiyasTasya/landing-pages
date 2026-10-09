@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Settings - InApp Inventory Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="./assets/images/favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="./assets/scss/style.scss">
+</head>
+
+<body>
+  <div id="overlay" class="overlay"></div>
+  <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3">
+    <button id="toggleBtn" class="d-none d-lg-inline-flex btn btn-light btn-icon btn-sm" aria-label="Toggle sidebar"><i class="ti ti-layout-sidebar-left-expand"></i></button>
+    <button id="mobileBtn" class="btn btn-light btn-icon btn-sm d-lg-none me-2" aria-label="Open sidebar"><i class="ti ti-layout-sidebar-left-expand"></i></button>
+    <div>
+      <ul class="list-unstyled d-flex align-items-center mb-0 gap-1">
+        <li class="dropdown">
+          <a class="position-relative btn-icon btn-sm btn-light btn rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button" aria-label="Notifications">
+            <i class="ti ti-bell fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">2<span class="visually-hidden">unread notifications</span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
+            <ul class="list-unstyled p-0 m-0">
+              <li class="p-3 border-bottom"><div class="d-flex gap-3"><span class="icon-shape icon-sm bg-primary-subtle text-primary rounded-circle"><i class="ti ti-package"></i></span><div class="small"><p class="mb-0">New order received</p><p class="mb-1">Order #12345 has been placed</p><div class="text-secondary">5 minutes ago</div></div></div></li>
+              <li class="p-3 border-bottom"><div class="d-flex gap-3"><span class="icon-shape icon-sm bg-success-subtle text-success rounded-circle"><i class="ti ti-user-plus"></i></span><div class="small"><p class="mb-0">New user registered</p><p class="mb-1">A new user has signed up</p><div class="text-secondary">30 minutes ago</div></div></div></li>
+              <li class="px-4 py-3 text-center"><a href="#" class="text-primary">View all notifications</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="ms-3 dropdown">
+          <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profile menu"><img src="./assets/images/avatar/avatar-6.jpeg" alt="Shrina Tesla" class="avatar avatar-sm rounded-circle"></a>
+          <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
+            <div class="d-flex gap-3 align-items-center border-bottom px-3 py-3"><img src="./assets/images/avatar/avatar-6.jpeg" alt="" class="avatar avatar-md rounded-circle"><div><h4 class="mb-0 small">Shrina Tesla</h4><p class="mb-0 small">@imshrina</p></div></div>
+            <ul class="list-unstyled p-0 m-0"><li><a class="dropdown-item" href="#"><i class="ti ti-user me-2"></i>Profile</a></li><li><a class="dropdown-item" href="./settings"><i class="ti ti-settings me-2"></i>Settings</a></li> 
+              <li><a class="dropdown-item text-primary fw-semibold" href="/"><i class="ti ti-world me-2"></i> Ke Landing Page</a></li><li><a class="dropdown-item" href="./signin"><i class="ti ti-logout me-2"></i>Logout</a></li></ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <aside id="sidebar" class="sidebar">
+    <div class="logo-area"><a href="./" class="d-inline-flex"><img src="./assets/images/logo-icon.svg" alt="" width="24"><span class="logo-text ms-2"><img src="./assets/images/logo.svg" alt=""></span></a></div>
+    <ul class="nav flex-column">
+      <li><a class="nav-link" href="./"><i class="ti ti-home"></i><span class="nav-text">Dashboard</span></a></li>
+      <li><a class="nav-link" href="./inventory"><i class="ti ti-box-seam"></i><span class="nav-text">Inventory</span></a></li>
+      <li><a class="nav-link" href="./categories"><i class="ti ti-category"></i><span class="nav-text">Categories</span></a></li>
+      <li><a class="nav-link" href="./suppliers"><i class="ti ti-truck"></i><span class="nav-text">Suppliers</span></a></li>
+      <li><a class="nav-link" href="./stock-movements"><i class="ti ti-transfer"></i><span class="nav-text">Stock Movements</span></a></li>
+      <li><a class="nav-link" href="./create-product"><i class="ti ti-plus"></i><span class="nav-text">Add Product</span></a></li>
+      <li><a class="nav-link" href="./reports"><i class="ti ti-receipt"></i><span class="nav-text">Reports</span></a></li>
+      
+      <li><a class="nav-link" href="./settings"><i class="ti ti-settings"></i><span class="nav-text">Settings</span></a></li>
+      <li><a class="nav-link" href="./docs"><i class="ti ti-file-text"></i><span class="nav-text">Docs</span></a></li>
+    </ul>
+  </aside>
+
+  <main id="content" class="content py-10">
+    <div class="container-fluid">
+      <div class="mb-4"><h1 class="fs-3 mb-1">Settings</h1><p class="mb-0">Configure inventory preferences.</p></div>
+      <div class="card">
+        <div class="card-body p-4">
+          <form id="settingsForm">
+            <div class="mb-3">
+              <label for="storeName" class="form-label">Store name</label>
+              <input id="storeName" name="storeName" class="form-control" value="InApp Inventory" required>
+            </div>
+            <div class="mb-3">
+              <label for="currency" class="form-label">Currency</label>
+              <select id="currency" name="currency" class="form-select"><option value="IDR" selected>IDR - Indonesian Rupiah (Rp)</option><option value="USD">USD - US Dollar ($)</option></select>
+            </div>
+            <div class="mb-3">
+              <label for="lowStock" class="form-label">Low stock threshold</label>
+              <input id="lowStock" name="lowStock" class="form-control" type="number" min="0" value="10" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Save Settings</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./assets/js/main.js" type="module"></script>
+</body>
+
+</html>

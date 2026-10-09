@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Suppliers - InApp Inventory Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="manifest" href="../assets/site.webmanifest">
+  <script type="module" crossorigin src="../assets/js/main2.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/css/main.css">
+</head>
+
+<body>
+  <div id="overlay" class="overlay"></div>
+  <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3">
+    <button id="toggleBtn" class="d-none d-lg-inline-flex btn btn-light btn-icon btn-sm" aria-label="Toggle sidebar"><i class="ti ti-layout-sidebar-left-expand"></i></button>
+    <button id="mobileBtn" class="btn btn-light btn-icon btn-sm d-lg-none me-2" aria-label="Open sidebar"><i class="ti ti-layout-sidebar-left-expand"></i></button>
+    <div>
+      <ul class="list-unstyled d-flex align-items-center mb-0 gap-1">
+        <li class="dropdown">
+          <a class="position-relative btn-icon btn-sm btn-light btn rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button" aria-label="Notifications">
+            <i class="ti ti-bell fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">2<span class="visually-hidden">unread notifications</span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
+            <ul class="list-unstyled p-0 m-0">
+              <li class="p-3 border-bottom"><div class="d-flex gap-3"><span class="icon-shape icon-sm bg-primary-subtle text-primary rounded-circle"><i class="ti ti-package"></i></span><div class="small"><p class="mb-0">New order received</p><p class="mb-1">Order #12345 has been placed</p><div class="text-secondary">5 minutes ago</div></div></div></li>
+              <li class="p-3 border-bottom"><div class="d-flex gap-3"><span class="icon-shape icon-sm bg-success-subtle text-success rounded-circle"><i class="ti ti-user-plus"></i></span><div class="small"><p class="mb-0">New user registered</p><p class="mb-1">A new user has signed up</p><div class="text-secondary">30 minutes ago</div></div></div></li>
+              <li class="px-4 py-3 text-center"><a href="#" class="text-primary">View all notifications</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="ms-3 dropdown">
+          <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profile menu"><img src="../assets/images/avatar-6.jpeg" alt="Shrina Tesla" class="avatar avatar-sm rounded-circle"></a>
+          <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
+            <div class="d-flex gap-3 align-items-center border-bottom px-3 py-3"><img src="../assets/images/avatar-6.jpeg" alt="" class="avatar avatar-md rounded-circle"><div><h4 class="mb-0 small">Shrina Tesla</h4><p class="mb-0 small">@imshrina</p></div></div>
+            <ul class="list-unstyled p-0 m-0"><li><a class="dropdown-item" href="#"><i class="ti ti-user me-2"></i>Profile</a></li><li><a class="dropdown-item" href="./settings"><i class="ti ti-settings me-2"></i>Settings</a></li> 
+              <li><a class="dropdown-item text-primary fw-semibold" href="/"><i class="ti ti-world me-2"></i> Ke Landing Page</a></li><li><a class="dropdown-item" href="./signin"><i class="ti ti-logout me-2"></i>Logout</a></li></ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <aside id="sidebar" class="sidebar">
+    <div class="logo-area"><a href="./" class="d-inline-flex"><img src="data:image/svg+xml,%3csvg%20width='62'%20height='67'%20viewBox='0%200%2062%2067'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M30.604%2066.378L0.00805664%2048.1582V35.7825L30.604%2054.0023V66.378Z'%20fill='%23302C4D'/%3e%3cpath%20d='M61.1996%2048.1582L30.604%2066.378V54.0023L61.1996%2035.7825V48.1582Z'%20fill='%23E66239'/%3e%3cpath%20d='M30.5955%200L0%2018.2198V30.5955L30.5955%2012.3757V0Z'%20fill='%23657E92'/%3e%3cpath%20d='M61.191%2018.2198L30.5955%200V12.3757L61.191%2030.5955V18.2198Z'%20fill='%23A3B2BE'/%3e%3cpath%20d='M30.604%2048.8457L0.00805664%2030.6259V18.2498L30.604%2036.47V48.8457Z'%20fill='%23302C4D'/%3e%3cpath%20d='M61.1996%2030.6259L30.604%2048.8457V36.47L61.1996%2018.2498V30.6259Z'%20fill='%23E66239'/%3e%3c/svg%3e" alt="" width="24"><span class="logo-text ms-2"><img src="../assets/images/logo.svg" alt=""></span></a></div>
+    <ul class="nav flex-column">
+      <li><a class="nav-link" href="./"><i class="ti ti-home"></i><span class="nav-text">Dashboard</span></a></li>
+      <li><a class="nav-link" href="./inventory"><i class="ti ti-box-seam"></i><span class="nav-text">Inventory</span></a></li>
+      <li><a class="nav-link" href="./categories"><i class="ti ti-category"></i><span class="nav-text">Categories</span></a></li>
+      <li><a class="nav-link" href="./suppliers"><i class="ti ti-truck"></i><span class="nav-text">Suppliers</span></a></li>
+      <li><a class="nav-link" href="./stock-movements"><i class="ti ti-transfer"></i><span class="nav-text">Stock Movements</span></a></li>
+      <li><a class="nav-link" href="./create-product"><i class="ti ti-plus"></i><span class="nav-text">Add Product</span></a></li>
+      <li><a class="nav-link" href="./reports"><i class="ti ti-receipt"></i><span class="nav-text">Reports</span></a></li>
+      
+      <li><a class="nav-link" href="./settings"><i class="ti ti-settings"></i><span class="nav-text">Settings</span></a></li>
+      <li><a class="nav-link" href="./docs"><i class="ti ti-file-text"></i><span class="nav-text">Docs</span></a></li>
+    </ul>
+  </aside>
+
+  <main id="content" class="content py-10">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div><h1 class="fs-3 mb-1">Suppliers</h1><p class="mb-0">Manage the vendors who supply your products.</p></div>
+        <button class="btn btn-primary" type="button" data-add-supplier><i class="ti ti-plus me-1"></i>Add Supplier</button>
+      </div>
+      <div class="card table-responsive">
+        <table class="table table-hover mb-0" data-supplier-table>
+          <thead class="table-light"><tr><th>Supplier</th><th>Contact</th><th>Email</th><th>Products</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Tech Pro</td><td>+62 21 555 0101</td><td>sales@techpro.example</td><td>5</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button" aria-label="Edit Tech Pro"><i class="ti ti-edit"></i></button></td></tr>
+            <tr><td>Brand Name</td><td>+62 21 555 0102</td><td>orders@brandname.example</td><td>3</td><td><span class="badge bg-success-subtle text-success">Active</span></td><td><button class="btn btn-sm btn-light" type="button" aria-label="Edit Brand Name"><i class="ti ti-edit"></i></button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
