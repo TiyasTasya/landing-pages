@@ -27,19 +27,70 @@
     }
 
         /*------------------
-            Gallery filter
-        --------------------*/
-        $('.featured__controls li').on('click', function () {
-            $('.featured__controls li').removeClass('active');
-            $(this).addClass('active');
-        });
+        var mixer = null;
         if ($('.featured__filter').length > 0) {
             var containerEl = document.querySelector('.featured__filter');
-            var mixer = mixitup(containerEl);
+            mixer = mixitup(containerEl, {
+                selectors: {
+                    target: '.mix'
+                },
+                animation: {
+                    duration: 300
+                }
+            });
+
+            $('.featured__controls li').on('click', function () {
+                $('.featured__controls li').removeClass('active');
+                $(this).addClass('active');
+                var filterValue = $(this).attr('data-filter');
+                if (mixer && filterValue) {
+                    mixer.filter(filterValue);
+                }
+            });
 
             $('.featured__controls__select').on('change', function () {
                 var filterValue = $(this).val();
-                mixer.filter(filterValue);
+                if (mixer && filterValue) {
+                    mixer.filter(filterValue);
+                }
+            });
+
+            $('.hero__categories ul li a, .categories__item h5 a').on('click', function (e) {
+                var categoryText = $(this).text().trim().toLowerCase();
+                var filterMap = {
+                    'semua': '*',
+                    'daging segar': '.fresh-meat',
+                    'sayuran': '.vegetables',
+                    'buah & kacang': '.oranges',
+                    'fresh fruit': '.oranges',
+                    'dried fruit': '.fastfood',
+                    'beri segar': '.oranges',
+                    'makanan laut': '.fastfood',
+                    'mentega & telur': '.fresh-meat',
+                    'makanan cepat saji': '.fastfood',
+                    'drink fruits': '.fastfood',
+                    'bawang segar': '.vegetables',
+                    'pepaya & keripik': '.fastfood',
+                    'oatmeal': '.fastfood',
+                    'pisang segar': '.oranges',
+                    'jeruk': '.oranges'
+                };
+
+                var targetFilter = filterMap[categoryText] || '*';
+
+                if ($('.featured').length > 0) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $('.featured').offset().top - 80
+                    }, 400);
+
+                    $('.featured__controls li').removeClass('active');
+                    $('.featured__controls li[data-filter="' + targetFilter + '"]').addClass('active');
+                    $('.featured__controls__select').val(targetFilter);
+                    if (mixer) {
+                        mixer.filter(targetFilter);
+                    }
+                }
             });
         }
 

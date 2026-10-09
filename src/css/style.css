@@ -408,13 +408,46 @@ ol {
 }
 
 .header__top__right__auth a {
-	display: block;
-	font-size: 14px;
-	color: #1c1c1c;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #333333;
+	background: #ffffff;
+	padding: 6px 14px;
+	border-radius: 20px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	border: 1px solid #e0e0e0;
+	transition: all 0.2s ease;
+	text-decoration: none;
+}
+
+.header__top__right__auth a:hover {
+	background: #E66239;
+	color: #ffffff;
+	border-color: #E66239;
+	box-shadow: 0 4px 12px rgba(230,98,57,0.25);
 }
 
 .header__top__right__auth a i {
-	margin-right: 6px;
+	margin-right: 2px;
+	font-size: 14px;
+	color: #E66239;
+}
+
+.header__top__right__auth a:hover i {
+	color: #ffffff;
+}
+
+.header__menu ul li > a i.fa-angle-down {
+	margin-left: 5px;
+	font-size: 13px;
+	transition: transform 0.3s ease;
+}
+
+.header__menu ul li:hover > a i.fa-angle-down {
+	transform: rotate(180deg);
 }
 
 .header__logo {
@@ -623,6 +656,11 @@ ol {
 	font-family: "ElegantIcons";
 	font-size: 18px;
 	color: #ffffff;
+	transition: transform 0.3s ease;
+}
+
+.hero__categories__all.open:after {
+	transform: rotate(180deg);
 }
 
 .hero__categories ul {
