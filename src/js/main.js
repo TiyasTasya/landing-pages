@@ -42,13 +42,15 @@
                 mixer.filter(filterValue);
             });
         }
-    });
 
     /*------------------
         Background Set
     --------------------*/
     $('.set-bg').each(function () {
         var bg = $(this).data('setbg');
+        if (bg && !bg.startsWith('/') && !bg.startsWith('http')) {
+            bg = '/' + bg;
+        }
         $(this).css('background-image', 'url(' + bg + ')');
     });
 

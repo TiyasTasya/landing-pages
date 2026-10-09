@@ -5,7 +5,14 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
-    { "source": "/admin/", "destination": "/admin/index.html" }
+    { "source": "/admin/", "destination": "/admin/index.html" },
+    { "source": "/categories", "destination": "/admin/categories.html" },
+    { "source": "/inventory", "destination": "/admin/inventory.html" },
+    { "source": "/suppliers", "destination": "/admin/suppliers.html" },
+    { "source": "/stock-movements", "destination": "/admin/stock-movements.html" },
+    { "source": "/create-product", "destination": "/admin/create-product.html" },
+    { "source": "/reports", "destination": "/admin/reports.html" },
+    { "source": "/settings", "destination": "/admin/settings.html" },
+    { "source": "/docs", "destination": "/admin/docs.html" }
   ]
 }
-
